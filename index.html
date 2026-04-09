@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Sankt Georg School — Home</title>
+    <meta name="description" content="Sankt Georg School — Excellence in education, community, and growth.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container topbar">
+            <div class="brand">
+                <a href="index.html" style="display:flex;gap:12px;align-items:center;text-decoration:none">
+                    <img class="logo" src="img/school-logo.jpeg" alt="School Logo">
+                    <div>
+                        <div style="font-weight:700;color:#1a202c">Sankt Georg International School</div>
+                        <div style="font-size:12px;color:var(--muted)"></div>
+                    </div>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav aria-label="Main">
+                <ul id="navMenu">                    
+                    <li><a href="admission.html">Apply Now</a></li>
+                    <li><a href="payment.html?mode=student_fee">Existing Student Fee Payment</a></li>
+                    <li><a href="login.html">Exam Portal</a></li>
+                    <li><a href="#news">News</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="staff.html">Staff</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-grid">
+                <div>
+                    <h1>Welcome to SANKT GEORG INTERNATIONAL SCHOOL</h1>
+                    <p class="lead">We nurture curious minds and develop confident, compassionate learners — from early years through graduation.</p>
+                </div>
+                <!--
+                <aside class="card">
+                </aside>
+            -->
+            </div>
+        </section>
+
+        <section id="about" class="section__about">
+            <div class="container">
+                <div style="display:grid;grid-template-columns:1fr;gap:28px;align-items:start">
+                    <div>
+                        <h2>About SGIS</h2>
+                        <p style="color:var(--muted);line-height:1.8">At SGIS, we believe in providing an exceptional education that not only prepares our students 
+                            for the future but also enriches their lives in the present. Our dedicated faculty and staff work tirelessly to create a learning environment 
+                            that is engaging, challenging, and supportive. Our mission is to providean environment that inspires our students to achieve their full potential. 
+                        </p>
+                        <p style="color:var(--muted);line-height:1.8">We are committed to ensuring that every student who enters our doors feels valued, supported, 
+                            and empowered to succeed. To us, education is not only about acquiring knowledge but also about developing the skills and character traits 
+                            necessary to become responsible and contributing members of society
+                        </P>
+                    <div class="card">
+                        <h4 style="margin-top:0">Quick Facts</h4>
+                        <ul style="margin:0;padding-left:20px;color:var(--muted);font-size:14px">
+                            <li>Founded in 2022</li>
+                            <li>350+ students</li>
+                            <li>International Languages/curriculum</li>
+                            <li>Safe, modern campus</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="forms" class="section">
+            <div class="container">
+                <h2>Our Programs</h2>
+                <p class="lead" style="margin-bottom:28px;color:var(--muted)">Excellence across every level of education</p>
+                <div class="grid-3">
+                    <div class="card">
+                        <h4>Nursery & Primary Section</h4>
+                        <p class="truncated-text" style="color:var(--muted);font-size:14px;line-height:1.6">The Nursery and Primary Section of SGIS forms the foundation of our educational journey, where every child is valued, supported, and encouraged to reach their full potential...</p>
+                        <button class="read-more-btn" onclick="openModal('modal-1')">Read More</button>
+                    </div>
+                    <div class="card">
+                        <h4>Secondary Section</h4>
+                        <p class="truncated-text" style="color:var(--muted);font-size:14px;line-height:1.6">The Secondary Section of SGIS is committed to academic excellence and all-round development. We offer a rigorous and well-rounded curriculum...</p>
+                        <button class="read-more-btn" onclick="openModal('modal-2')">Read More</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal for Nursery & Primary Section -->
+        <div id="modal-1" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-1')">&times;</span>
+                <h3>Nursery & Primary Section</h3>
+                <p style="color:var(--muted);font-size:14px;line-height:1.6">The Nursery and Primary Section of SGIS forms the foundation of our educational journey, where every child is valued, supported, 
+                    and encouraged to reach their full potential. We focus on personalized learning, helping pupils build confidence, discover their strengths, and grow academically, socially, and creatively.
+                    Our classrooms are spacious, child-friendly, and equipped to provide a safe and engaging learning environment. Pupils also benefit from access to the library, computer rooms, and a variety 
+                    of extracurricular activities such as sports, music, drama, art, and educational trips.
+                    Learning at this level is hands-on and well-rounded, covering practical life skills, language development, mathematics, science, social studies, and creative activities. Through this balanced 
+                    approach, we nurture curiosity, concentration, independence, and a strong sense of community among pupils, parents, and staff</p>
+            </div>
+        </div>
+
+        <!-- Modal for Secondary Section -->
+        <div id="modal-2" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal-2')">&times;</span>
+                <h3>Secondary Section</h3>
+                <p style="color:var(--muted);font-size:14px;line-height:1.6">The Secondary Section of SGIS is committed to academic excellence and all-round development. We offer a rigorous and well-rounded 
+                    curriculum that challenges students to achieve their full potential while equipping them with the knowledge, discipline, and skills needed for future success.
+                    Our highly qualified teachers provide personalized guidance and support, helping students excel academically and grow in confidence. Beyond the classroom, students benefit from a variety 
+                    of extracurricular activities, including sports, clubs, and community service, which help to build leadership, teamwork, and social responsibility.
+                    SGIS provides a modern and stimulating learning environment with well-equipped classrooms, science laboratories, computer rooms, a library, and sports facilities. We also promote a strong 
+                    culture of respect, inclusivity, and kindness, creating a safe and supportive community where every student can thrive.
+                    Our curriculum is broad-based and balanced, covering the CORE academic curriculum, CO-CURRICULAR activities, and the HIDDEN curriculum that shapes attitudes, values, and character. This 
+                    approach ensures that students receive not only quality education but also the personal development needed to become responsible and successful individuals.</p>
+            </div>
+        </div>
+
+        <section id="admissions" class="section admissions">
+            <div class="container">
+                <div style="max-width:820px">
+                    <h2 style="color:rgba(255,255,255,0.92);">Ready to Join Our School?</h2>
+                    <p class="lead" style="color:rgba(255,255,255,0.92);font-size: 25px">Applications are open for the upcoming academic year. We welcome students from all backgrounds who share our values of excellence, respect, and growth.</p>
+                    <div class="cta" style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap">
+                        <a href="admission.html" class="btn">Start Your Application</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="news" class="section" style="background:transparent">
+            <div class="container">
+                <h2>News & Announcements</h2>
+                <div class="news-list" style="margin-top:12px">
+                    <div class="card">
+                        <h4 style="margin-top:0;color:var(--brand)">Ongoing Admissions</h4>
+                        <p style="color:var(--muted);font-size:14px;margin:8px 0">Applications are now open for the new academic session. Give your child the opportunity to learn, grow, and excel in a supportive academic environment.</p>
+                        <a href="#" style="color:var(--brand);font-weight:600;text-decoration:none;font-size:14px">Read more →</a>
+                    </div>
+                    <div class="card">
+                        <h4 style="margin-top:0;color:var(--brand)">Science Fair Results Announced</h4>
+                        <p style="color:var(--muted);font-size:14px;margin:8px 0">Congratulations to all participants in this year's science fair. Outstanding projects showcased student innovation!</p>
+                        <a href="#" style="color:var(--brand);font-weight:600;text-decoration:none;font-size:14px">Read more →</a>
+                    </div>
+                    <div class="card">
+                        <h4 style="margin-top:0;color:var(--brand)">New STEM Lab Opening</h4>
+                        <p style="color:var(--muted);font-size:14px;margin:8px 0">We're excited to announce our brand new state-of-the-art STEM laboratory!</p>
+                        <a href="#" style="color:var(--brand);font-weight:600;text-decoration:none;font-size:14px">Read more →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="section">
+            <div class="container">
+                <h2>What Our Parents Say</h2>
+                <p class="lead" style="margin-bottom:28px;color:var(--muted)">Families and students share their experiences at Sankt Georg.</p>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"Sankt Georg has been transformative for our daughter. The teachers are dedicated, the facilities are excellent, and the community is truly welcoming."</p>
+                        <p class="testimonial-author">Sarah Mitchell</p>
+                        <p class="testimonial-role">Parent, Grade 5</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"I love coming to school every day. My teachers believe in me, and I've made friends from all over the world. It's amazing!"</p>
+                        <p class="testimonial-author">Ahmed Hassan</p>
+                        <p class="testimonial-role">Student, Grade 7</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonial-text">"The holistic education here is remarkable. Our son has grown not just academically, but as a person. We couldn't be happier."</p>
+                        <p class="testimonial-author">Dr. & Mrs. Patel</p>
+                        <p class="testimonial-role">Parents, Grade 9</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <div style="display:grid;grid-template-columns:1fr 320px;gap:28px;align-items:start">
+                    <div>
+                        <h2>Get In Touch</h2>
+                        <p style="color:var(--muted);line-height:1.8">Have questions about Sankt Georg? We'd love to hear from you. Contact us today or visit our campus!</p>
+                        <div style="margin-top:24px;display:flex;flex-direction:column;gap:16px">
+                            <div>
+                                <p style="margin:0;font-weight:600;color:#1a202c">Phone</p>
+                                <p style="margin:4px 0;color:var(--muted)">+234 916 557 3514</p>
+                                <p style="margin:4px 0;color:var(--muted)">+234 902 345 3660</p>
+                            </div>
+                            <div>
+                                <p style="margin:0;font-weight:600;color:#1a202c">Email</p>
+                                <p style="margin:4px 0;color:var(--muted)">sanktgeorginternationalschool@gmail.com</p>
+                            </div>
+                            <div>
+                                <p style="margin:0;font-weight:600;color:#1a202c">Address</p>
+                                <p style="margin:4px 0;color:var(--muted)">Umuijem Avu<br>Owerri, Imo State</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h4 style="margin-top:0">Office Hours</h4>
+                        <div style="color:var(--muted);font-size:14px;line-height:1.8">
+                            <p style="margin:0"><strong>Monday – Friday</strong><br>8:00 AM – 4:00 PM</p>
+                            <p style="margin:8px 0 0"><strong>Saturday</strong><br>10:00 AM – 1:00 PM</p>
+                            <p style="margin:8px 0 0"><strong>Sunday</strong><br>Closed</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+            <div style="color:var(--muted)">© Sankt Georg School — All rights reserved</div>
+            <div class="meta">
+                <a href="#" style="color:var(--muted);text-decoration:none">Privacy</a>
+                <a href="#" style="color:var(--muted);text-decoration:none">Accessibility</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('header')) {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Modal Functions for Read More
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside of modal-content
+        window.addEventListener('click', function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Our Staff — Sankt Georg School</title>
+    <meta name="description" content="Meet the dedicated team at Sankt Georg School.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{--brand:#8b3a42;--brand-light:#d4747f;--brand-dark:#5a1e28;--muted:#080808;--bg:#f8fafc}
+        *{box-sizing:border-box}
+        html,body{height:100%}
+        body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;line-height:1.5;color:#1a202c;background:linear-gradient(180deg,var(--bg),#f0f4f8);letter-spacing:0.3px}
+        .container{max-width:1100px;margin:0 auto;padding:24px;width:100%}
+        header{background:#fff;border-bottom:none;box-shadow:0 2px 12px rgba(139,58,66,0.08);position:sticky;top:0;z-index:999}
+        .topbar{display:flex;align-items:center;justify-content:space-between;padding:16px 0;flex-wrap:wrap}
+        .brand{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+        .logo{height:40px;width:auto;object-fit:contain;flex-shrink:0}
+        nav ul{display:flex;gap:18px;list-style:none;padding:0;margin:0;flex-wrap:wrap}
+        nav a{color:#1a202c;text-decoration:none;font-weight:600;transition:color 0.3s ease;position:relative;font-size:15px}
+        nav a:hover{color:var(--brand)}
+        nav a:after{content:'';position:absolute;bottom:-6px;left:0;width:0;height:2px;background:var(--brand);transition:width 0.3s ease}
+        nav a:hover:after{width:100%}
+        .menu-toggle{display:none;background:none;border:none;font-size:24px;cursor:pointer;color:var(--brand);flex-direction:column;gap:5px;padding:8px}
+        .menu-toggle span{display:block;width:24px;height:3px;background:var(--brand);border-radius:2px;transition:all 0.3s ease}
+        .menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(8px,8px);background:var(--brand)}
+        .menu-toggle.active span:nth-child(2){opacity:0;background:var(--brand)}
+        .menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px);background:var(--brand)}
+        page-hero{/*background:linear-gradient(rgba(6,34,68,0.5), rgba(6,34,68,0.3)),url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;*/padding:48px 0;color:#111111;min-height:300px;display:flex;align-items:center;border-bottom:1px solid rgba(230,238,248,0.6)}
+        .page-hero h1{margin:0;font-size:clamp(28px,5vw,36px);font-weight:700;line-height:1.2}
+        .page-hero p{margin:12px 0 0;font-size:clamp(14px,3vw,16px);color:rgba(29, 28, 28, 0.92)}
+        .section{padding:clamp(32px,6vw,48px) 0}
+        .section h2{font-size:clamp(22px,5vw,28px);font-weight:700;color:#1a202c;margin-bottom:28px}
+        .staff-category{margin-bottom:48px}
+        .staff-category h3{font-size:20px;font-weight:600;color:var(--brand);margin-bottom:20px;border-bottom:2px solid rgba(139,58,66,0.1);padding-bottom:12px}
+        .staff-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(20px,3vw,24px)}
+        .staff-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 16px rgba(139,58,66,0.08);transition:all 0.3s ease;border:1px solid rgba(139,58,66,0.05)}
+        .staff-card:hover{transform:translateY(-6px);box-shadow:0 8px 24px rgba(15,111,219,0.12)}
+        .staff-photo{width:100%;height:240px;background:linear-gradient(135deg,rgba(139,58,66,0.1),rgba(212,116,127,0.1));display:flex;align-items:center;justify-content:center;font-size:48px;color:var(--brand);overflow:hidden}
+        .staff-photo img{width:100%;height:100%;object-fit:cover}
+        .staff-info{padding:20px}
+        .staff-name{font-weight:700;font-size:16px;color:#1a202c;margin:0}
+        .staff-position{color:var(--brand);font-weight:600;font-size:13px;margin:6px 0 0;text-transform:uppercase;letter-spacing:0.5px}
+        .staff-bio{color:var(--muted);font-size:13px;margin:8px 0 0;line-height:1.4}
+        footer{padding:32px 0;color:var(--muted);font-size:13px;background:#fff;border-top:1px solid rgba(139,58,66,0.05)}
+        .meta{display:flex;gap:16px;align-items:center}
+        footer a{color:var(--muted);text-decoration:none;transition:color 0.3s ease}
+        footer a:hover{color:var(--brand)}
+        @media (max-width:900px){
+            .menu-toggle{display:flex}
+            nav ul{display:none;position:absolute;top:70px;left:0;right:0;flex-direction:column;background:#fff;padding:16px 24px;margin:0;box-shadow:0 4px 12px rgba(139,58,66,0.1);gap:0;width:100%}
+            nav ul.active{display:flex}
+            nav li{padding:12px 0;border-bottom:1px solid rgba(139,58,66,0.05)}
+            nav li:last-child{border-bottom:none}
+            nav a{padding:8px 0;display:block;color:var(--brand);font-weight:600}
+            nav a:after{display:none}
+            .staff-grid{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container topbar">
+            <div class="brand">
+                <img class="logo" src="img/school-logo.jpeg" alt="School Logo">
+                <div>
+                    <div style="font-weight:700">Sankt Georg International School</div>
+                    <div style="font-size:12px;color:var(--muted)"></div>
+                </div>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav aria-label="Main">
+                <ul id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#forms">Forms</a></li>
+                    <li><a href="staff.html">Staff</a></li>
+                    <li><a href="admission.html">Apply Now</a></li>
+                    <li><a href="index.html#news">News</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <div>
+                    <h1>Meet Our Staff</h1>
+                    <p>In the bid to actualize and realize our mission and vision, SGIS set out in 
+                        search of quality in terms of Staff. It is evident, that the successes recorded 
+                        by any organization eloquentlytestify to the high degree of commitment and 
+                        tenacity of purpose of its staff and evidence of the administrative know-how 
+                        of its managers in actualizing the goals and aspirations of the organization. SGIS 
+                        prioritized a warm, cordial, and motivatingorganizational climate, thereby 
+                        ensuring that the spirit of the employees is vibrant, peaceful, and inspiring.
+                    </p>
+                    <p>SGIS engaged the services of great teachers who inspire their pupils to greater 
+                        heights of intellectual inquiry, creativity, and productivity. Our teachers are 
+                        well-qualified, exposed, and experienced. This is not surprising, given our 
+                        benchmarks of a minimum of a Bachelor’s degree and Nigerian Certificate of 
+                        Education (NCE) for secondary and primary school teachers respectively. 
+                    </p>
+                    <p>The quality of our staff is clearly evident in the glittering academic, 
+                        spiritual, and social transformation parents are witnessing in their children 
+                        since the inception of the school. 
+                    </p>
+                    <p>Meet the dedicated educators and administrators who make Sankt Georg special.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+
+                <!-- PROPRIETOR & LEADERSHIP -->
+                <div class="staff-category">
+                    <h3>School Management Team</h3>
+                    <div class="staff-grid">
+                        <div class="staff-card">
+                            <div class="staff-photo">👔</div>
+                            <div class="staff-info">
+                                <p class="staff-name">Dr. Heinrich Mueller</p>
+                                <p class="staff-position">Administrator</p>
+                                <!--<p class="staff-bio">With 25+ years in 
+                                    education, Dr. Mueller leads Sankt Georg 
+                                    with vision and integrity.</p>-->
+                            </div>
+                        </div>
+                        <div class="staff-card">
+                            <div class="staff-photo">👩‍💼</div>
+                            <div class="staff-info">
+                                <p class="staff-name">Margaret Schmidt</p>
+                                <p class="staff-position">Principal</p>
+                                <!--<p class="staff-bio">Dedicated to student success and pastoral care.</p>-->
+                            </div>
+                        </div>
+                        <div class="staff-card">
+                            <div class="staff-photo">👩‍💼</div>
+                            <div class="staff-info">
+                                <p class="staff-name">Margaret Schmidt</p>
+                                <p class="staff-position">Principal</p>
+                                <!--<p class="staff-bio">Dedicated to student success and pastoral care.</p>-->
+                            </div>
+                        </div>
+                        <div class="staff-card">
+                            <div class="staff-photo">👩‍💼</div>
+                            <div class="staff-info">
+                                <p class="staff-name">Margaret Schmidt</p>
+                                <p class="staff-position">Head Teacher</p>
+                                <!--<p class="staff-bio">Dedicated to student success and pastoral care.</p>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ACADEMIC STAFF -->
+                <!--<div class="staff-category">
+                    <h3>Academic Coordinators</h3>
+                    <div class="staff-grid">
+                        <div class="staff-card">
+                            <div class="staff-photo">👨‍🏫</div>
+                            <div class="staff-info">
+                                <p class="staff-name">Prof. James Richardson</p>
+                                <p class="staff-position">Head of Academics</p>
+                                <p class="staff-bio">Oversees curriculum development and academic excellence.</p>
+                            </div>
+                        </div>
+                        <div class="staff-card">
+                            <div class="staff-photo">👩‍🏫</div>
+                            <div class="staff-info">
+                                <p class="staff-name">Dr. Elena Rossi</p>
+                                <p class="staff-position">Curriculum Director</p>
+                                <p class="staff-bio">Specializes in modern pedagogical approaches.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+
+                <!-- CLASS TEACHERS - PRIMARY -->
+                <!--<div class="staff-category">
+                    <h3>Primary Teachers</h3>
+                    <div class="staff-grid">
+                        <div class="staff-card">
+                            <div class="staff-photo">👩‍🏫</div>
+                            <div class="staff-info">
+                                <p class="staff-name">Anna Weber</p>
+                                <p class="staff-position">Grade 1 Teacher</p>
+                                <p class="staff-bio">Loves engaging young minds in foundational learning.</p>
+                            </div>
+                        </div>
+                        <div class="staff-card">
+                            <div class="staff-photo">👨‍🏫</div>
+                            <div class="staff-info">
+                                <p class="staff-name">Michael Fischer</p>
+                                <p class="staff-position">Grade 2 Teacher</p>
+                                <p class="staff-bio">Creates a warm, supportive learning environment.</p>
+                            </div>
+                        </div>
+                        <div class="staff-card">
+                            <div class="staff-photo">👩‍🏫</div>
+                            <div class="staff-info">
+                                <p class="staff-name">Sophie Laurent</p>
+                                <p class="staff-position">Grade 3 Teacher</p>
+                                <p class="staff-bio">Passionate about developing critical thinking skills.</p>
+                            </div>
+                        </div>
+                        <div class="staff-card">
+                            <div class="staff-photo">👨‍🏫</div>
+                            <div class="staff-info">
+                                <p class="staff-name">David Hoffmann</p>
+                                <p class="staff-position">Grade 4 Teacher</p>
+                                <p class="staff-bio">Encourages curiosity and independent learning.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+
+                <!-- CLASS TEACHERS - SECONDARY -->
+                <!--<div class="staff-category">
+                    <h3>Secondary Teachers</h3>
+                    <div class="staff-grid">
+                        <div class="staff-card">
+                            <div class="staff-photo">👩‍🏫</div>
+                            <div class="staff-info">
+                                <p class="staff-name">Julia Müller</p>
+                                <p class="staff-position">Grade 5-6 Class Teacher</p>
+                                <p class="staff-bio">Guides students through the transition to secondary education.</p>
+                            </div>
+                        </div>
+                        <div class="staff-card">
+                            <div class="staff-photo">👨‍🏫</div>
+                            <div class="staff-info">
+                                <p class="staff-name">Thomas Bergmann</p>
+                                <p class="staff-position">Grade 7-8 Class Teacher</p>
+                                <p class="staff-bio">Specializes in adolescent development and mentoring.</p>
+                            </div>
+                        </div>
+                        <div class="staff-card">
+                            <div class="staff-photo">👩‍🏫</div>
+                            <div class="staff-info">
+                                <p class="staff-name">Catherine Dubois</p>
+                                <p class="staff-position">Grade 9-10 Class Teacher</p>
+                                <p class="staff-bio">Prepares students for academic excellence and leadership.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+
+                <!-- SPECIALIZED STAFF -->
+                <!--<div class="staff-category">
+                    <h3>Specialist Teachers</h3>
+                    <div class="staff-grid">
+                        <div class="staff-card">
+                            <div class="staff-photo">🎨</div>
+                            <div class="staff-info">
+                                <p class="staff-name">Marco Giancarlo</p>
+                                <p class="staff-position">Arts Teacher</p>
+                                <p class="staff-bio">Nurtures creativity and artistic expression.</p>
+                            </div>
+                        </div>
+                        <div class="staff-card">
+                            <div class="staff-photo">⚽</div>
+                            <div class="staff-info">
+                                <p class="staff-name">Coach Emma Hansen</p>
+                                <p class="staff-position">Physical Education</p>
+                                <p class="staff-bio">Builds character through sports and fitness.</p>
+                            </div>
+                        </div>
+                        <div class="staff-card">
+                            <div class="staff-photo">🎵</div>
+                            <div class="staff-info">
+                                <p class="staff-name">Herr Klaus Bauer</p>
+                                <p class="staff-position">Music Teacher</p>
+                                <p class="staff-bio">Develops musical talent and ensemble skills.</p>
+                            </div>
+                        </div>
+                        <div class="staff-card">
+                            <div class="staff-photo">💻</div>
+                            <div class="staff-info">
+                                <p class="staff-name">Robert Chen</p>
+                                <p class="staff-position">IT & Computer Science</p>
+                                <p class="staff-bio">Prepares students for the digital age.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+            <div style="color:var(--muted)">© Sankt Georg School — All rights reserved</div>
+            <div class="meta">
+                <a href="#" style="color:var(--muted);text-decoration:none">Privacy</a>
+                <a href="#" style="color:var(--muted);text-decoration:none">Accessibility</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('header')) {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    </script>
+
+</body>
+</html>
