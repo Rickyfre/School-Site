@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Application Fee Payment — Sankt Georg School</title>
+    <meta name="description" content="Complete your admission application payment securely.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{--brand:#8b3a42;--brand-light:#d4747f;--brand-dark:#5a1e28;--muted:#080808;--bg:#f8fafc;--success:#10b981;--error:#ef4444}
+        *{box-sizing:border-box}
+        html,body{height:100%}
+        body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;line-height:1.5;color:#1a202c;background:linear-gradient(180deg,var(--bg),#f0f4f8);letter-spacing:0.3px}
+        .container{max-width:1100px;margin:0 auto;padding:24px;width:100%}
+        header{background:#fff;border-bottom:none;box-shadow:0 2px 12px rgba(139,58,66,0.08);position:sticky;top:0;z-index:999}
+        .topbar{display:flex;align-items:center;justify-content:space-between;padding:16px 0;flex-wrap:wrap}
+        .brand{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+        .logo{height:40px;width:auto;object-fit:contain;flex-shrink:0}
+        nav ul{display:flex;gap:18px;list-style:none;padding:0;margin:0;flex-wrap:wrap}
+        nav a{color:#1a202c;text-decoration:none;font-weight:600;transition:color 0.3s ease;position:relative;font-size:15px}
+        nav a:hover{color:var(--brand)}
+        nav a:after{content:'';position:absolute;bottom:-6px;left:0;width:0;height:2px;background:var(--brand);transition:width 0.3s ease}
+        nav a:hover:after{width:100%}
+        .menu-toggle{display:none;background:none;border:none;font-size:24px;cursor:pointer;color:var(--brand);flex-direction:column;gap:5px;padding:8px}
+        .menu-toggle span{display:block;width:24px;height:3px;background:var(--brand);border-radius:2px;transition:all 0.3s ease}
+        .menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(8px,8px);background:var(--brand)}
+        .menu-toggle.active span:nth-child(2){opacity:0;background:var(--brand)}
+        .menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px);background:var(--brand)}
+        .page-hero{background:linear-gradient(135deg,rgba(139,58,66,0.1),rgba(212,116,127,0.05));padding:clamp(40px, 8vw, 60px) 0;border-bottom:1px solid rgba(139,58,66,0.1)}
+        .page-hero h1{margin:0;font-size:clamp(24px, 5vw, 32px);color:var(--brand);font-weight:700}
+        .section{padding:clamp(32px, 6vw, 48px) 0}
+        .payment-container{max-width:600px;margin:0 auto}
+        .payment-card{background:#fff;border-radius:12px;padding:clamp(24px, 4vw, 32px);box-shadow:0 4px 16px rgba(139,58,66,0.08);border:1px solid rgba(139,58,66,0.05)}
+        .payment-summary{background:linear-gradient(135deg,rgba(15,111,219,0.05),rgba(74,159,255,0.05));padding:20px;border-radius:8px;margin-bottom:24px}
+        .summary-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:14px}
+        .summary-row:last-child{margin-bottom:0;padding-top:12px;border-top:1px solid rgba(139,58,66,0.1);font-weight:600;font-size:16px;color:var(--brand)}
+        .form-group{margin-bottom:clamp(16px, 3vw, 24px)}
+        .form-group label{display:block;font-weight:600;margin-bottom:8px;color:#1a202c;font-size:clamp(13px, 2.5vw, 14px)}
+        .form-group input{width:100%;padding:clamp(10px, 2vw, 12px);border:1px solid rgba(15,111,219,0.15);border-radius:8px;font-family:Inter,system-ui,Segoe UI;font-size:clamp(13px, 2.5vw, 14px);transition:border-color 0.3s ease,box-shadow 0.3s ease}
+        .form-group input:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px rgba(139,58,66,0.1)}
+        .btn{display:inline-block;padding:clamp(10px, 2vw, 12px) clamp(20px, 4vw, 28px);border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand-light));color:#fff;text-decoration:none;font-weight:600;transition:all 0.3s ease;box-shadow:0 4px 12px rgba(139,58,66,0.3);cursor:pointer;border:none;font-size:clamp(13px, 2.5vw, 15px);width:100%}
+        .btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(139,58,66,0.4)}
+        .btn:active{transform:translateY(0)}
+        .btn:disabled{opacity:0.6;cursor:not-allowed;transform:none}
+        .btn-secondary{background:#f0f4f8;color:var(--brand);margin-top:10px;width:100%}
+        .btn-secondary:hover{background:#e8ecf2}
+        .info-banner{background:linear-gradient(135deg,rgba(16,185,129,0.1),rgba(16,185,129,0.05));padding:16px;border-radius:8px;border-left:4px solid var(--success);margin-bottom:24px}
+        .info-banner p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
+        .secure-badge{display:flex;align-items:center;gap:8px;justify-content:center;margin-top:16px;color:var(--muted);font-size:13px}
+        .secure-badge svg{width:16px;height:16px;color:var(--success)}
+        .payment-methods{margin-top:24px}
+        .payment-methods h3{margin:0 0 16px;font-size:14px;font-weight:600;color:#1a202c}
+        .method-list{display:grid;gap:8px}
+        .method-item{display:flex;align-items:center;gap:8px;padding:12px;border:1px solid rgba(139,58,66,0.1);border-radius:8px;font-size:13px;color:var(--muted)}
+        .method-item svg{width:20px;height:20px;color:var(--success)}
+        footer{padding:clamp(24px, 4vw, 32px) 0;color:var(--muted);font-size:clamp(12px, 2vw, 13px);background:#fff;border-top:1px solid rgba(15,111,219,0.05)}
+        .meta{display:flex;gap:clamp(12px, 2vw, 16px);align-items:center;flex-wrap:wrap}
+        footer a{color:var(--muted);text-decoration:none;transition:color 0.3s ease}
+        footer a:hover{color:var(--brand)}
+        .loader{display:none;width:20px;height:20px;border:3px solid rgba(255,255,255,0.3);border-top:3px solid #fff;border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto}
+        @keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+        .success-message{display:none;text-align:center;padding:24px;background:#f0fdf4;border:1px solid rgba(16,185,129,0.2);border-radius:8px}
+        .success-message h3{color:var(--success);margin-top:0}
+        @media (max-width:900px){
+            .menu-toggle{display:flex}
+            nav ul{display:none;position:absolute;top:70px;left:0;right:0;flex-direction:column;background:#fff;padding:16px 24px;margin:0;box-shadow:0 4px 12px rgba(139,58,66,0.1);gap:0;width:100%}
+            nav ul.active{display:flex}
+            nav li{padding:12px 0;border-bottom:1px solid rgba(139,58,66,0.05)}
+            nav li:last-child{border-bottom:none}
+            nav a{padding:8px 0;display:block;color:var(--brand);font-weight:600}
+            nav a:after{display:none}
+        }
+        @media (max-width:767px){
+            .container{padding:16px}
+            .topbar{gap:12px}
+            .brand div:last-child{font-size:clamp(13px, 3vw, 15px)}
+            .brand div:last-child > div:first-child{font-size:clamp(14px, 3vw, 16px);font-weight:700}
+            .brand div:last-child > div:last-child{font-size:clamp(10px, 2vw, 12px)}
+            .payment-card{padding:clamp(16px, 4vw, 24px)}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container topbar">
+            <div class="brand">
+                <a href="index.html" style="display:flex;gap:12px;align-items:center;text-decoration:none">
+                    <img class="logo" src="img/school-logo.jpeg" alt="School Logo">
+                    <div>
+                        <div style="font-weight:700;color:#1a202c">Sankt Georg International School</div>
+                        <div style="font-size:12px;color:var(--muted)"></div>
+                    </div>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav aria-label="Main">
+                <ul id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="admission.html">Apply Now</a></li>
+                    <li><a href="staff.html">Staff</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>Complete Your Payment</h1>
+                <p style="color:var(--muted);margin-top:8px">Secure payment for your admission application fee.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container payment-container">
+                <div class="payment-card">
+                    <div id="existingStudentNotice" class="info-banner" style="display:none;background:linear-gradient(135deg,rgba(59,130,246,0.08),rgba(34,211,238,0.08));border-left:4px solid #3b82f6;">
+                        <p>✓ Existing student fee payment enabled. Enter your Student ID before proceeding.</p>
+                    </div>
+
+                    <div id="existingStudentBlock" class="form-group" style="display:none;">
+                        <label>Student ID <span style="color:#e53e3e">*</span></label>
+                        <input type="text" id="existingStudentId" placeholder="Enter student ID" />
+                        <div class="info-text">Use this if you are already enrolled and paying term fees.</div>
+                    </div>
+
+                    <div class="payment-summary">
+                        <div class="summary-row">
+                            <span>Application Fee</span>
+                            <span>₦25,000.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Tax & Processing</span>
+                            <span>₦1,500.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Total Amount</span>
+                            <span>₦26,500.00</span>
+                        </div>
+                    </div>
+
+                    <form id="paymentForm">
+                        <div class="form-group">
+                            <label>Full Name <span style="color:#e53e3e">*</span></label>
+                            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email Address <span style="color:#e53e3e">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Phone Number <span style="color:#e53e3e">*</span></label>
+                            <input type="tel" id="phone" name="phone" placeholder="+234 801 234 5678" required>
+                        </div>
+
+                        <button type="button" class="btn" id="payBtn" onclick="initiatePayment()">
+                            <span id="btnText">Pay ₦26,500 with Paystack</span>
+                            <div class="loader" id="loader"></div>
+                        </button>
+                        <a href="admission.html" class="btn btn-secondary">Back to Application</a>
+                    </form>
+
+                    <div class="payment-methods">
+                        <h3>Accepted Payment Methods</h3>
+                        <div class="method-list">
+                            <div class="method-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8m3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5m-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11m3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+                                </svg>
+                                <span>Bank Cards (Visa, Mastercard, Verve)</span>
+                            </div>
+                            <div class="method-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8m3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5m-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11m3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+                                </svg>
+                                <span>Mobile Money (MTN, Airtel, 9Mobile)</span>
+                            </div>
+                            <div class="method-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8m3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5m-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11m3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+                                </svg>
+                                <span>USSD and Bank Transfers</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="secure-badge">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                        </svg>
+                        <span>Secured by Paystack</span>
+                    </div>
+                </div>
+
+                <div class="success-message">
+                    <h3>Payment Successful!</h3>
+                    <p>Your admission application fee has been paid successfully.</p>
+                    <p>You will receive a confirmation email shortly with your application details.</p>
+                    <p>Redirecting to home page...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+            <div style="color:var(--muted)">© Sankt Georg School — All rights reserved</div>
+            <div class="meta">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="index.html">Back to Home</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Paystack Script -->
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('header')) {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Configuration
+        const API_BASE_URL = 'http://localhost:5000/api';
+        const API_AUTH_KEY = '<insert-secret-here>'; // replace with process env secret in prod
+
+        // Determine mode
+        const urlParams = new URLSearchParams(window.location.search);
+        const paymentMode = urlParams.get('mode') || 'admission';
+
+        if (paymentMode === 'student_fee') {
+            document.getElementById('existingStudentNotice').style.display = 'block';
+            document.getElementById('existingStudentBlock').style.display = 'block';
+            document.querySelector('.info-banner').innerHTML = '<p>✓ Student fee payments are enabled. Please enter your student ID and continue.</p>';
+        }
+
+        // Payment initialization function
+        async function initiatePayment() {
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const existingStudentId = document.getElementById('existingStudentId').value.trim();
+
+            if (paymentMode === 'student_fee' && !existingStudentId) {
+                alert('Please provide your student ID for fee payment.');
+                return;
+            }
+
+            // Validation
+            if (!fullName || !email || !phone) {
+                alert('Please fill in all required fields');
+                return;
+            }
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+
+            // Phone validation (basic)
+            if (phone.replace(/\D/g, '').length < 10) {
+                alert('Please enter a valid phone number');
+                return;
+            }
+
+            // Show loader
+            document.getElementById('loader').style.display = 'block';
+            document.getElementById('btnText').style.display = 'none';
+            document.getElementById('payBtn').disabled = true;
+
+            try {
+                // Step 1: Initialize payment with backend
+                const initResponse = await fetch(`${API_BASE_URL}/payment/initialize`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-api-key': API_AUTH_KEY
+                    },
+                    body: JSON.stringify({
+                        full_name: fullName,
+                        email: email,
+                        phone: phone,
+                        admissionId: sessionStorage.getItem('applicationId') || null,
+                        mode: paymentMode,
+                        existingStudentId: paymentMode === 'student_fee' ? existingStudentId : undefined
+                    })
+                });
+
+                if (!initResponse.ok) {
+                    throw new Error('Failed to initialize payment');
+                }
+
+                const initData = await initResponse.json();
+
+                if (!initData.success) {
+                    throw new Error(initData.error || 'Payment initialization failed');
+                }
+
+                // Store payment ID
+                sessionStorage.setItem('paymentId', initData.data.paymentId);
+
+                // Step 2: Open Paystack payment
+                const paystackKey = initData.data.paystackKey;
+
+                let handler = PaystackPop.setup({
+                    key: paystackKey,
+                    email: email,
+                    amount: initData.data.amount, // Amount in kobo
+                    ref: 'SG' + Math.floor((Math.random() * 1000000000) + 1),
+                    firstname: fullName.split(' ')[0],
+                    lastname: fullName.split(' ').slice(1).join(' '),
+                    phone: phone,
+                    onClose: function() {
+                        alert('Payment window closed.');
+                        document.getElementById('loader').style.display = 'none';
+                        document.getElementById('btnText').style.display = 'inline';
+                        document.getElementById('payBtn').disabled = false;
+                    },
+                    callback: async function(response) {
+                        // Step 3: Verify payment with backend
+                        try {
+                            const verifyResponse = await fetch(`${API_BASE_URL}/payment/verify`, {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'x-api-key': API_AUTH_KEY
+                                },
+                                body: JSON.stringify({
+                                    reference: response.reference
+                                })
+                            });
+
+                            const verifyData = await verifyResponse.json();
+
+                            if (verifyData.success) {
+                                // Payment successful
+                                document.getElementById('loader').style.display = 'none';
+                                document.getElementById('payBtn').style.display = 'none';
+                                document.getElementById('paymentForm').style.display = 'none';
+                                
+                                const successMsg = document.querySelector('.success-message');
+                                successMsg.style.display = 'block';
+                                
+                                // Redirect after 3 seconds
+                                setTimeout(() => {
+                                    window.location.href = 'index.html?payment=success';
+                                }, 3000);
+                            } else {
+                                throw new Error(verifyData.error || 'Payment verification failed');
+                            }
+                        } catch (error) {
+                            console.error('Verification error:', error);
+                            alert('Payment verified but could not be recorded. Please contact support.');
+                            document.getElementById('loader').style.display = 'none';
+                            document.getElementById('btnText').style.display = 'inline';
+                            document.getElementById('payBtn').disabled = false;
+                        }
+                    }
+                });
+
+                handler.openIframe();
+
+            } catch (error) {
+                console.error('Payment initialization error:', error);
+                alert('Error: ' + error.message);
+                document.getElementById('loader').style.display = 'none';
+                document.getElementById('btnText').style.display = 'inline';
+                document.getElementById('payBtn').disabled = false;
+            }
+        }
+
+        // Allow Enter key to submit
+        document.getElementById('paymentForm').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                initiatePayment();
+            }
+        });
+    </script>
+
+</body>
+</html>
