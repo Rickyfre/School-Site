@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Sankt Georg — Student Login</title>
+    <meta name="description" content="Student login for exam access">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root{--brand:#8b3a42;--brand-light:#d4747f;--muted:#080808;--bg:#f8fafc}
+        *{box-sizing:border-box}
+        html,body{height:100%}
+        body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;line-height:1.5;color:#1a202c;background:linear-gradient(180deg,var(--bg),#f0f4f8)}
+        .container{max-width:900px;margin:0 auto;padding:24px;width:100%}
+        header{background:#fff;border-bottom:none;box-shadow:0 2px 12px rgba(139,58,66,0.08);position:sticky;top:0;z-index:999}
+        .topbar{display:flex;align-items:center;justify-content:space-between;padding:16px 0;flex-wrap:wrap}
+        .brand{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+        .logo{height:40px;width:auto;object-fit:contain;flex-shrink:0}
+        nav ul{display:flex;gap:18px;list-style:none;padding:0;margin:0;flex-wrap:wrap}
+        nav a{color:#1a202c;text-decoration:none;font-weight:600;transition:color 0.3s ease}
+        .menu-toggle{display:none;background:none;border:none;font-size:24px;cursor:pointer;color:var(--brand);flex-direction:column;gap:5px;padding:8px}
+        .menu-toggle span{display:block;width:24px;height:3px;background:var(--brand);border-radius:2px;transition:all 0.3s ease}
+        .menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(8px,8px);background:var(--brand)}
+        .menu-toggle.active span:nth-child(2){opacity:0;background:var(--brand)}
+        .menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(7px,-7px);background:var(--brand)}
+        .login-wrap{display:flex;align-items:center;justify-content:center;min-height:60vh;padding:40px 0}
+        .card{background:#fff;border-radius:12px;padding:28px;box-shadow:0 8px 30px rgba(139,58,66,0.06);width:100%;max-width:480px}
+        .card h2{margin-top:0;color:var(--brand)}
+        .form-group{display:flex;flex-direction:column;margin-bottom:14px}
+        label{font-weight:600;margin-bottom:6px;color:#1a202c}
+        input{padding:12px 14px;border-radius:8px;border:1px solid #e6eef8;font-size:14px}
+        .btn{display:inline-block;padding:10px 18px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand-light));color:#fff;text-decoration:none;font-weight:700;border:none;cursor:pointer}
+        .hint{font-size:13px;color:var(--muted);margin-top:8px}
+        .success{background:#ecfdf5;border:1px solid #bbf7d0;color:#065f46;padding:12px;border-radius:8px;margin-top:12px}
+        @media (max-width:600px){
+            .topbar{
+                padding:12px
+            }
+            .container{
+                padding:16px
+            }
+        }
+
+         @media (max-width:900px){
+            .menu-toggle{
+                display:flex
+            }
+            nav ul{
+                display:none;
+                position:absolute;
+                top:70px;left:0;
+                right:0;
+                flex-direction:column;
+                background:#fff;
+                padding:16px 24px;
+                margin:0;
+                box-shadow:0 4px 12px rgba(139,58,66,0.1);
+                gap:0;
+                width:100%;
+            }
+            nav ul.active{
+                display:flex
+            }
+            nav li{
+                padding:12px 0;
+                border-bottom:1px solid rgba(139,58,66,0.05)
+            }
+            nav li:last-child{
+                border-bottom:none
+            }
+            nav a{
+                padding:8px 0;
+                display:block;
+                color:var(--brand);
+                font-weight:600;
+            }
+            nav a:after{
+                display:none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container topbar">
+            <div class="brand">
+                <a href="index.html" style="display:flex;gap:12px;align-items:center;text-decoration:none">
+                    <img class="logo" src="img/school-logo.jpeg" alt="School Logo">
+                    <div>
+                        <div style="font-weight:700;color:#1a202c">Sankt Georg International School</div>
+                    </div>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav aria-label="Main">
+                <ul id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="admission.html">Apply</a></li>
+                    <li><a href="staff.html">Staff</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="login-wrap">
+            <div class="container">
+                <div class="card">
+                    <h2>Student Login</h2>
+                    <p style="margin:0 0 12px;color:var(--muted)">Enter your Application ID and the Exam PIN you received after payment.</p>
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="appId">Application ID</label>
+                            <input id="appId" name="appId" type="text" placeholder="e.g., SG-2026-0001" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pin">Exam PIN / Password</label>
+                            <input id="pin" name="pin" type="password" placeholder="Enter your exam PIN" required>
+                        </div>
+                        <div style="display:flex;gap:12px;align-items:center">
+                            <button class="btn" type="submit">Start Exam</button>
+                            <a href="admission.html" style="color:var(--brand);font-weight:600;text-decoration:none;align-self:center">Need help?</a>
+                        </div>
+                        <div id="message" aria-live="polite"></div>
+                    </form>
+                    <p class="hint">If you have paid but haven't received a PIN, contact admissions.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="padding:28px 0;text-align:center;color:var(--muted);background:#fff;border-top:1px solid rgba(15,111,219,0.05)">
+        © Sankt Georg School — All rights reserved
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        const form = document.getElementById('loginForm');
+        const message = document.getElementById('message');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const appId = document.getElementById('appId').value.trim();
+            const pin = document.getElementById('pin').value.trim();
+
+            // Basic client-side validation
+            if (!appId || !pin) {
+                message.innerHTML = '<div style="color:#b91c1c;margin-top:12px">Please enter both Application ID and PIN.</div>';
+                return;
+            }
+
+                // Simple client-side credential check (demo).
+                // Replace this with a secure backend authentication in production.
+                const validCreds = {
+                    'SG-DEMO-0001': '123456',
+                    'SG-2026-0001': 'EXAM2026'
+                };
+
+                if (validCreds[appId] && validCreds[appId] === pin) {
+                    message.innerHTML = '<div class="success">Login successful — redirecting to the exam...</div>';
+                    form.querySelector('button').disabled = true;
+                    // mark session as authenticated so exam page can verify
+                    sessionStorage.setItem('sg_auth', '1');
+                    sessionStorage.setItem('sg_appId', appId);
+                    setTimeout(() => {
+                        window.location.href = 'exam.html';
+                    }, 900);
+                } else {
+                    message.innerHTML = '<div style="color:#b91c1c;margin-top:12px">Invalid Application ID or PIN. If you have paid but not received a PIN, contact admissions.</div>';
+                }
+        });
+    </script>
+</body>
+</html>
